@@ -105,8 +105,8 @@ $di->setShared('session', function () {
     return $session;
 });
 
-$di->set('modelsCache', function () use($config) {
-
+$di->set('modelsCache', function () {
+    $config = $this->getConfig();
     // 默认缓存时间为一天
     $frontCache = new \Phalcon\Cache\Frontend\Data(array(
         "lifetime" => 86400
